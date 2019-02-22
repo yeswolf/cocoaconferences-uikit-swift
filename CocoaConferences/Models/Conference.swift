@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import Yaml
+import Yams
 
 /*
 name: mDevCamp
@@ -17,7 +17,7 @@ name: mDevCamp
     link: https://goo.gl/forms/eoX2WfG1LRoZPxxo1
     deadline: 2019-02-28
 */
-class Conference: CustomStringConvertible {
+class Conference: Codable {
     var name = ""
     var start: Date?
     var end: Date?
@@ -26,20 +26,14 @@ class Conference: CustomStringConvertible {
     var cfp: Cfp?
     var link: String?
 
-    init(yaml: Yaml) {
-        self.name = yaml["name"].string!
-
-        self.start = yaml["start"] != Yaml.null ? dateFormat.date(from: yaml["start"].string!) : nil
-        self.end = yaml["end"] != Yaml.null ? dateFormat.date(from: yaml["end"].string!) : nil
-        self.location = yaml["location"].string!
-        self.cocoaOnly = yaml["cocoa-only"].bool!
-        if (yaml["cfp"] != Yaml.null) {
-            self.cfp = Cfp(yaml: yaml["cfp"])
-        }
-        self.link = yaml["link"].string
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case start
+        case end
+        case location
+        case cocoaOnly = "cocoa-only"
+        case cfp
+        case link
     }
 
-    var description: String {
-        return "Conference(name: \(name), start: \(start), end: \(end), location: \(location), cocoaOnly: \(cocoaOnly), cfp: \(cfp), link: \(link))"
-    }
 }

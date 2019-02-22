@@ -4,13 +4,20 @@
 //
 
 import Foundation
-import Yaml
+import Yams
 import XCTest
 import Quick
 import Nimble
 import Alamofire
 
 @testable import CocoaConferences
+
+func zeroDateComponents(stringDate: String) -> Date {
+    let date = dateFormat.date(from: stringDate)
+    var comps = Calendar.current.dateComponents([.year, .month, .day], from: date!)
+    comps.timeZone = TimeZone(secondsFromGMT: 0)
+    return Calendar.current.date(from:comps)!
+}
 
 class NetworkTests: QuickSpec {
     override func spec() {
@@ -21,9 +28,11 @@ class NetworkTests: QuickSpec {
                     Alamofire.request(confURL).response { response in
                         if let dt = response.data, let data = String(data: dt, encoding: .utf8) {
                             expect(data).toNot(beEmpty())
-                            let yaml = try! Yaml.load(data)
+
+                            let decoder = YAMLDecoder()
+                            let yaml = try! decoder.decode([Conference].self, from: data)
                             expect(yaml.count).to(beGreaterThan(0))
-                            let conference = Conference(yaml: yaml[0])
+                            let conference = yaml[0]
                             expect(conference.name).toNot(beEmpty())
                             done()
                         }
@@ -32,37 +41,32 @@ class NetworkTests: QuickSpec {
             }
             it("should load conference with CFP") {
                 waitUntil(timeout: 5) { done in
-                    Alamofire.request(confURL).response { response in
-                        if let dt = response.data, let data = String(data: dt, encoding: .utf8) {
-                            let yaml = try! Yaml.load(data)
-                            let conference = Conference(yaml: yaml[0])
-                            expect(conference.name).to(equal("mDevCamp"))
-                            expect(conference.start).to(equal(dateFormat.date(from: "2019-05-30")))
-                            expect(conference.end).to(equal(dateFormat.date(from: "2019-05-31")))
-                            expect(conference.cocoaOnly).to(equal(false))
-                            expect(conference.location).to(equal("🇨🇿 Prague, Czech Republic"))
-                            let cfp = Cfp(link: "https://goo.gl/forms/eoX2WfG1LRoZPxxo1", deadline: dateFormat.date(from: "2019-02-28")!)
-                            expect(conference.cfp!).to(equal(cfp))
-                            done()
-                        }
-                    }
+                    let decoder = YAMLDecoder()
+                    let yaml = try! decoder.decode([Conference].self, from:
+                    """
+                    - name: mDevCamp
+                      link: https://mdevcamp.eu/
+                      start: 2019-05-30
+                      end: 2019-05-31
+                      location: 🇨🇿 Prague, Czech Republic
+                      cocoa-only: false
+                      cfp:
+                        link: https://goo.gl/forms/eoX2WfG1LRoZPxxo1
+                        deadline: 2019-02-28
+                    """
+                    )
+                    let conference = yaml[0]
+                    expect(conference.name).to(equal("mDevCamp"))
+                    expect(conference.start).to(equal(zeroDateComponents(stringDate: "2019-05-30")))
+                    expect(conference.end).to(equal(zeroDateComponents(stringDate: "2019-05-31")))
+                    expect(conference.cocoaOnly).to(equal(false))
+                    expect(conference.location).to(equal("🇨🇿 Prague, Czech Republic"))
+                    let cfp = Cfp()
+                    cfp.link = "https://goo.gl/forms/eoX2WfG1LRoZPxxo1"
+                    cfp.deadline = dateFormat.date(from: "2019-02-28")!
+                    expect(conference.cfp! == cfp)
+                    done()
                 }
-            }
-            it("should load all conferences") {
-                waitUntil(timeout: 5) { done in
-                    Alamofire.request(confURL).response { response in
-                        if let dt = response.data, let data = String(data: dt, encoding: .utf8) {
-                            let yaml = try! Yaml.load(data)
-
-                            for conf in yaml.array! {
-                                let conference = Conference(yaml: conf)
-                                expect(conference != nil)
-                            }
-                            done()
-                        }
-                    }
-                }
-
             }
         }
     }

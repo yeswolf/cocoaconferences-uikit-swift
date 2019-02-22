@@ -8,13 +8,18 @@
 
 import UIKit
 import Alamofire
-import Yaml
+import Yams
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var loader: UIActivityIndicatorView!
 
     var conferences: Array<Conference> = Array()
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
 
     let tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .plain)
@@ -29,28 +34,19 @@ class ViewController: UIViewController {
         loadConferences()
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
-    }
-
     private func loadConferences() {
         Alamofire.request(confURL).response { response in
             if let dt = response.data, let data = String(data: dt, encoding: .utf8) {
-                let yaml = try! Yaml.load(data)
-                if let array = yaml.array {
-                    for confYaml in array {
-                        self.conferences.append(Conference(yaml: confYaml))
-                    }
-                }
+                let decoder = YAMLDecoder()
+                self.conferences = try! decoder.decode([Conference].self, from: data)
             }
-
             self.view.addSubview(self.tableView)
             self.tableView.reloadData()
         }
     }
 }
-extension ViewController:UITableViewDelegate {
+
+extension ViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ConferenceViewController") as! ConferenceViewController
@@ -59,6 +55,7 @@ extension ViewController:UITableViewDelegate {
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
+
 extension ViewController: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

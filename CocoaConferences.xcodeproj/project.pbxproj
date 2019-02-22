@@ -6,6 +6,19 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		2C14E07B21FB2980007BE0E8 /* Tests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2C14E07E21FB2980007BE0E8 /* Build configuration list for PBXAggregateTarget "Tests" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = Tests;
+			productName = Tests;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		167D77938F0662D00B09C952 /* Pods_CocoaConferencesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C787D692F14FBE0299F0AD1C /* Pods_CocoaConferencesTests.framework */; };
 		5ED7B6C5A8D71C1D185443EB /* Pods_CocoaConferencesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3E9777818CACE3207EC1F6 /* Pods_CocoaConferencesUITests.framework */; };
@@ -272,6 +285,16 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = JetBrains;
+				TargetAttributes = {
+					2C14E07B21FB2980007BE0E8 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = Y847937U8K;
+						ProvisioningStyle = Automatic;
+					};
+					62E98828D9DE377AB9049EAA = {
+						DevelopmentTeam = Y847937U8K;
+					};
+				};
 			};
 			buildConfigurationList = 62E982621B3D5DEA77C2A511 /* Build configuration list for PBXProject "CocoaConferences" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -288,6 +311,7 @@
 				62E98828D9DE377AB9049EAA /* CocoaConferences */,
 				62E983BC76B64FC144407B12 /* CocoaConferencesTests */,
 				62E983C6C9525EC815B006D1 /* CocoaConferencesUITests */,
+				2C14E07B21FB2980007BE0E8 /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -374,14 +398,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CocoaConferences/Pods-CocoaConferences-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Yaml/Yaml.framework",
+				"${BUILT_PRODUCTS_DIR}/Yams/Yams.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Yaml.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Yams.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -502,6 +526,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2C14E07C21FB2980007BE0E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y847937U8K;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2C14E07D21FB2980007BE0E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y847937U8K;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		62E980804D610F6E70B234AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -680,7 +722,9 @@
 			baseConfigurationReference = 4D017A2F8CBD1E1726E423CD /* Pods-CocoaConferences.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y847937U8K;
 				INFOPLIST_FILE = CocoaConferences/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.jetbrains.CocoaConferences;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -694,7 +738,9 @@
 			baseConfigurationReference = EC6727915CFFF761FD8E1562 /* Pods-CocoaConferences.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y847937U8K;
 				INFOPLIST_FILE = CocoaConferences/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.jetbrains.CocoaConferences;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -706,6 +752,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2C14E07E21FB2980007BE0E8 /* Build configuration list for PBXAggregateTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C14E07C21FB2980007BE0E8 /* Debug */,
+				2C14E07D21FB2980007BE0E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		62E982621B3D5DEA77C2A511 /* Build configuration list for PBXProject "CocoaConferences" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -4,25 +4,22 @@
 //
 
 import Foundation
-import Yaml
+import Yams
 
-class Cfp: Hashable, CustomStringConvertible {
-    init(link: String, deadline: Date) {
-        self.link = link
-        self.deadline = deadline
+class Cfp: Codable, Hashable {
+    var link: String //https://goo.gl/forms/eoX2WfG1LRoZPxxo1
+    var deadline: Date? //2019-02-28
+
+    init() {
+        link = ""
+        deadline = nil
     }
-
-    let link: String //https://goo.gl/forms/eoX2WfG1LRoZPxxo1
-    let deadline: Date? //2019-02-28
-
-    init(yaml: Yaml) {
-        self.link = yaml["link"].string!
-        self.deadline = yaml["deadline"] != Yaml.null ? dateFormat.date(from: yaml["deadline"].string!) : nil
+    var description: String {
+        return "Cfp(link: \(link), deadline: \(deadline))"
     }
-
     var hashValue: Int {
         var result = link.hashValue
-        result = result * 31 + deadline.hashValue
+        result = result * 31 + (deadline?.hashValue ?? 0)
         return result
     }
 
@@ -40,9 +37,5 @@ class Cfp: Hashable, CustomStringConvertible {
             return false
         }
         return true
-    }
-
-    var description: String {
-        return "Cfp(link: \(link), deadline: \(deadline))"
     }
 }

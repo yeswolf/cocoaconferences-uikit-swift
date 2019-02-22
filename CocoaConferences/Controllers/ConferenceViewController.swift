@@ -28,13 +28,13 @@ class ConferenceViewController: UIViewController {
         self.locationLabel.text = conference?.location
 
         if let cfp = conference?.cfp {
+            self.cfpLinkLabel.text = "🖊🔗 \(cfp.link)"
             if let deadline = cfp.deadline {
                 self.cfpDateLabel.text = "🖊🗓 \(friendlyDateFormat.string(from: deadline))"
-            }else {
+            } else {
                 cfpDateLabel.isHidden = true
             }
-            self.cfpLinkLabel.text = "🖊🔗 \(cfp.link)"
-        }else {
+        } else {
             cfpLinkLabel.isHidden = true
             cfpDateLabel.isHidden = true
         }
