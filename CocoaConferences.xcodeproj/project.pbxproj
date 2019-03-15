@@ -30,6 +30,7 @@
 		62E98744FB4FD163F62748FD /* ConferenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9819A0319CA4CD42F1AF3 /* ConferenceCell.swift */; };
 		62E98786A0940F82B39627F2 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9867B5B4579DB7800B703 /* NetworkTests.swift */; };
 		62E98A5004E9D3F754E96E52 /* Cfp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9840D9EEA10846A6B43CE /* Cfp.swift */; };
+		62E98A6AF955943B4007588E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 62E984EBB0FFBE9F138B4CF6 /* .gitignore */; };
 		62E98B001118FCCDC9F90E5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E983C36859D356FB6E6448 /* AppDelegate.swift */; };
 		62E98C2C0D3D97C03814E536 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62E9870AC23D578A59D09A90 /* Main.storyboard */; };
 		62E98D4C3037C79805E000AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E988E6D8C2054469D67685 /* Constants.swift */; };
@@ -66,6 +67,7 @@
 		62E98478B3580CD6EB35CE95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		62E984A9DB423B0053035EBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62E984B68F749DB39F56B4AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		62E984EBB0FFBE9F138B4CF6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		62E9867B5B4579DB7800B703 /* NetworkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		62E986A4F40DFAB247BF077A /* ConferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceViewController.swift; sourceTree = "<group>"; };
 		62E988E6D8C2054469D67685 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				62E9858FC330316440C69088 /* CocoaConferencesUITests */,
 				C202ED0B3527C5705217BE59 /* Pods */,
 				D5ADBFBC78506E98E0109667 /* Frameworks */,
+				62E984EBB0FFBE9F138B4CF6 /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
@@ -328,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62E98A6AF955943B4007588E /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
