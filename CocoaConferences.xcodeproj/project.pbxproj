@@ -292,7 +292,7 @@
 						ProvisioningStyle = Automatic;
 					};
 					62E98828D9DE377AB9049EAA = {
-						DevelopmentTeam = Y847937U8K;
+						DevelopmentTeam = 2ZEFAR8TH3;
 					};
 				};
 			};
@@ -393,23 +393,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CocoaConferences/Pods-CocoaConferences-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-CocoaConferences/Pods-CocoaConferences-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Yams/Yams.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Yams.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CocoaConferences/Pods-CocoaConferences-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CocoaConferences/Pods-CocoaConferences-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A9C9A7C87DFD92C53A8B6069 /* [CP] Check Pods Manifest.lock */ = {
@@ -439,23 +435,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CocoaConferencesTests/Pods-CocoaConferencesTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-CocoaConferencesTests/Pods-CocoaConferencesTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CocoaConferencesTests/Pods-CocoaConferencesTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CocoaConferencesTests/Pods-CocoaConferencesTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -722,7 +714,7 @@
 			baseConfigurationReference = 4D017A2F8CBD1E1726E423CD /* Pods-CocoaConferences.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y847937U8K;
+				DEVELOPMENT_TEAM = 2ZEFAR8TH3;
 				INFOPLIST_FILE = CocoaConferences/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -738,7 +730,7 @@
 			baseConfigurationReference = EC6727915CFFF761FD8E1562 /* Pods-CocoaConferences.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y847937U8K;
+				DEVELOPMENT_TEAM = 2ZEFAR8TH3;
 				INFOPLIST_FILE = CocoaConferences/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -19,3 +19,10 @@ var friendlyDateFormat: DateFormatter = {
     format.locale = Locale(identifier: "en_US_POSIX")
     return format
 }()
+
+func zeroDateComponents(stringDate: String) -> Date {
+    let date = dateFormat.date(from: stringDate)
+    var comps = Calendar.current.dateComponents([.year, .month, .day], from: date!)
+    comps.timeZone = TimeZone(secondsFromGMT: 0)
+    return Calendar.current.date(from: comps)!
+}

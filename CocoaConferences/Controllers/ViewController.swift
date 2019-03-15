@@ -13,13 +13,7 @@ import Yams
 class ViewController: UIViewController {
 
     @IBOutlet weak var loader: UIActivityIndicatorView!
-
     var conferences: Array<Conference> = Array()
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
-    }
 
     let tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .plain)
@@ -34,6 +28,11 @@ class ViewController: UIViewController {
         loadConferences()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
+
     private func loadConferences() {
         Alamofire.request(confURL).response { response in
             if let dt = response.data, let data = String(data: dt, encoding: .utf8) {
@@ -41,6 +40,7 @@ class ViewController: UIViewController {
                 self.conferences = try! decoder.decode([Conference].self, from: data)
             }
             self.view.addSubview(self.tableView)
+            self.loader.stopAnimating()
             self.tableView.reloadData()
         }
     }
@@ -69,6 +69,4 @@ extension ViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = conference.location
         return cell
     }
-
-
 }
