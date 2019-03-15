@@ -48,8 +48,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "ConferenceViewController") as! ConferenceViewController
+        let controller =  ConferenceViewController()
         let conference = conferences[indexPath.row]
         controller.conference = conference
         self.navigationController?.pushViewController(controller, animated: true)
