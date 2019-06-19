@@ -20,8 +20,8 @@ var friendlyDateFormat: DateFormatter = {
     return format
 }()
 
-func zeroDateComponents(stringDate: String) -> Date {
-    let date = dateFormat.date(from: stringDate)
+func zeroDateComponents(from date: String) -> Date {
+    let date = dateFormat.date(from: date)
     var comps = Calendar.current.dateComponents([.year, .month, .day], from: date!)
     comps.timeZone = TimeZone(secondsFromGMT: 0)
     return Calendar.current.date(from: comps)!

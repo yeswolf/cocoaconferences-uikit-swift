@@ -1,6 +1,7 @@
 project 'CocoaConferences.xcodeproj'
 
 target 'CocoaConferences' do
+  use_frameworks!
   pod 'Yams'
   pod 'Alamofire'
   pod 'SnapKit'

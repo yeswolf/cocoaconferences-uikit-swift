@@ -6,10 +6,9 @@
 import Foundation
 import Yams
 import XCTest
+import Alamofire
 import Quick
 import Nimble
-import Alamofire
-
 @testable import CocoaConferences
 
 class NetworkTests: QuickSpec {
@@ -51,13 +50,14 @@ class NetworkTests: QuickSpec {
                 )
                 let conference: Conference = yaml[0]
                 expect(conference.name).to(equal("mDevCamp"))
-                expect(conference.start).to(equal(zeroDateComponents(stringDate: "2019-05-30")))
-                expect(conference.end).to(equal(zeroDateComponents(stringDate: "2019-05-31")))
+                expect(conference.start).to(equal(dateFormat.date(from: "2019-05-30")))
+                expect(conference.end).to(equal(dateFormat.date(from: "2019-05-31")))
                 expect(conference.cocoaOnly).to(equal(false))
                 expect(conference.location).to(equal("🇨🇿 Prague, Czech Republic"))
+
                 let cfp = Cfp()
                 cfp.link = "https://goo.gl/forms/eoX2WfG1LRoZPxxo1"
-                cfp.deadline = zeroDateComponents(stringDate: "2019-02-28")
+                cfp.deadline = dateFormat.date(from: "2019-02-28")
 
                 expect(conference.cfp!.link).to(equal(cfp.link))
                 expect(conference.cfp!.deadline).to(equal(cfp.deadline))
@@ -76,8 +76,8 @@ class NetworkTests: QuickSpec {
                 )
                 let conference = yaml[0]
                 expect(conference.name).to(equal("mDevCamp"))
-                expect(conference.start).to(equal(zeroDateComponents(stringDate: "2019-05-30")))
-                expect(conference.end).to(equal(zeroDateComponents(stringDate: "2019-05-31")))
+                expect(conference.start).to(equal(dateFormat.date(from: "2019-05-30")))
+                expect(conference.end).to(equal(dateFormat.date(from: "2019-05-31")))
                 expect(conference.cocoaOnly).to(equal(false))
                 expect(conference.location).to(equal("🇨🇿 Prague, Czech Republic"))
                 expect(conference.cfp).to(beNil())
