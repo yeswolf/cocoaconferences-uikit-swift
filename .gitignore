@@ -2,3 +2,4 @@ Pods
 *.xcuserdatad
 */xcshareddata/*
 Podfile.lock
+.idea
