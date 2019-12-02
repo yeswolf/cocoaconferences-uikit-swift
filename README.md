@@ -1,2 +1,1 @@
-
-# iOS application for [https://cocoaconferences.com](https://cocoaconferences.com)
+Swift client for [https://cocoaconferences.com](https://cocoaconferences.com)
