@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     }
 
     private func loadConferences() {
-        Alamofire.request(confURL).response { response in
+        AF.request(confURL).response { response in
             if let dt = response.data, let data = String(data: dt, encoding: .utf8) {
                 let decoder = YAMLDecoder()
                 self.conferences = try! decoder.decode([Conference].self, from: data)
